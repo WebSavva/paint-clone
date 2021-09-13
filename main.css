@@ -1,248 +1,259 @@
 html {
-    box-sizing: border-box;
-    height: 100%;
-    font-size: 62.5%;
-    font-family: 'Roboto', sans-serif;
-    touch-action: none;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+  touch-action: none;
 }
 
 * {
-    box-sizing: inherit;
-    padding: 0;
-    margin: 0;
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
 }
 
 button {
-    border: none;
-    background-color: transparent;
+  border: none;
+  background-color: transparent;
 }
 
 body {
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    touch-action: none;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
 }
 
 .main-section {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .toolbar {
-    z-index: 15;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: gray;
-    display: flex;
-    align-items: center;
-    z-index: 1;
-    gap: 1rem;
-    justify-content: center;
-    max-height: 6rem;
-    padding: 2rem 0;
+  z-index: 15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: gray;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  gap: 1rem;
+  justify-content: center;
+  max-height: 6rem;
+  padding: 2rem 0;
 }
 
 .toolbar-left,
 .toolbar-right {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .active-tool {
-    font-size: 1.7rem;
-    color: white;
-    padding: 1rem 1.2rem;
-    background: rgba(0, 0, 0, 0.548);
-    border-radius: .8rem;
-    font-weight: 700;
+  font-size: 1.7rem;
+  color: white;
+  padding: 1rem 1.2rem;
+  background: rgba(0, 0, 0, 0.548);
+  border-radius: 0.8rem;
+  font-weight: 700;
 }
 
 .draw-set {
-    display: flex;
-    margin-right: 2rem;
-    align-items: center;
-    background: rgba(100, 99, 99, 0.562);
-    padding: .3rem 1rem; 
-    border-radius: .2rem;
+  display: flex;
+  margin-right: 2rem;
+  align-items: center;
+  background: rgba(100, 99, 99, 0.562);
+  padding: 0.3rem 1rem;
+  border-radius: 0.2rem;
 }
 
 .pen-value {
-    font-size: 1.7rem;
-    color: white;
-    background: rgba(0, 0, 0, 0.548);
-    border-radius: .8rem;
-    font-weight: 700;
-    padding: .8rem 1rem;
+  font-size: 1.7rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.548);
+  border-radius: 0.8rem;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
 }
 .fas {
-    padding: .8rem 1rem;
-    font-size: 2rem;
-    color: white;
-    background: rgba(0, 0, 0, 0.548);
-    border-radius: .3rem;
+  padding: 0.8rem 1rem;
+  font-size: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.548);
+  border-radius: 0.3rem;
 }
-#undo:hover{
-    color: red;
+#undo:hover {
+  color: red;
 }
+
 .jscolor {
-    outline: none;
-    border: none;
-    padding: 1rem;
-    font-size: 1.5rem;
-    border-radius: .4rem;
-    margin: 0 .5rem;
-    text-align: center;
-    width: 15rem;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.4rem;
+  margin: 0 0.5rem;
+  text-align: center;
+  width: min-content;
+  color: #fff;
 }
 
 .pen-size-range {
-    -webkit-appearance: none;
-    outline: none;
-    background: rgb(177, 177, 177);
-    opacity: .8;
-    transition: opacity .2s;
-    cursor: pointer;
+  -webkit-appearance: none;
+  outline: none;
+  background: rgb(177, 177, 177);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  cursor: pointer;
 }
 
 .pen-size-range:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .pen-size-range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 10px;
-    height: 10px;
-    background: rgb(47, 47, 47);
-  }
-  
-  .pen-size-range::-moz-range-thumb {
-    width: 10px;
-    height: 10px;
-    background: rgb(47, 47, 47);
-  }
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: rgb(47, 47, 47);
+}
+
+.pen-size-range::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: rgb(47, 47, 47);
+}
 
 .btn {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 canvas#canvas {
-    cursor: crosshair;
-    width: 100%;
-    height: 100%;
-    touch-action: none;
+  cursor: crosshair;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
 }
 
 .active {
-    font-weight: bold;
-    opacity: 40%;
+  font-weight: bold;
+  opacity: 40%;
 }
 
+.set-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
 .menu-btn {
-    display: none;
-    position: fixed;
-    top: 2rem;
-    left: 2rem;
-    padding: 1rem;
-    border-radius: .5rem;
-    background: rgba(0, 0, 0, 0.507);
-    z-index: 20;
-    align-items: center;
-    justify-items: center;
-    width: 5rem;
-    height: 4.5rem;
+  display: none;
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.507);
+  z-index: 20;
+  align-items: center;
+  justify-items: center;
+  width: 5rem;
+  height: 4.5rem;
 }
 
 .menu-toggle {
-    position: relative;
-    width: 100%;
-    border-radius: 5px;
-    height: 5px;
-    background-color: rgb(216, 214, 214);
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  height: 5px;
+  background-color: rgb(216, 214, 214);
 }
 
 .menu-toggle::after,
 .menu-toggle::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: inherit;
-    border-radius: inherit;
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: inherit;
 }
 
 .menu-toggle::after {
-    top: 10px;
+  top: 10px;
 }
 
 .menu-toggle::before {
-    top: -10px;
+  top: -10px;
 }
 
-@media screen and (max-width:1100px) {
-    html {
-        font-size: 55%;
-    }
-    .toolbar {
-        flex-direction: column;
-        max-height: 0;
-        padding: 0;
-        background-color: rgba(0, 0, 0, 0.582);
-        overflow: hidden;
-        transition: max-height .5s .2s, padding .1s;
-    }
+@media screen and (max-width: 1100px) {
+  html {
+    font-size: 55%;
+  }
+  .toolbar {
+    flex-direction: column;
+    max-height: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.582);
+    overflow: hidden;
+    transition: max-height 0.5s 0.2s, padding 0.1s;
+  }
 
-    .toolbar > * {
-        display: none;
-        transition: display .1s;
-    }
-    .toolbar.visible {
-        padding: 2rem 0;
-        max-height: 400px;
-        transition: max-height .6s, padding .6s;
-    }
-    .toolbar.visible > * {
-        display: flex;
-        transition: display .1s .3s;
-    }
-    .active-tool {
-        position: fixed;
-        z-index: 20;
-        bottom: 1rem;
-        right: 1rem;
-    }
-    .menu-btn {
-        display: flex;
-        align-items: center;
-        justify-items: center;
-    }
+  .picker_wrapper.popup {
+      position: fixed !important;
+      top: 50% !important;
+      z-index: 50 !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%);
+  }
+
+  .picker_arrow::before {
+      display: none !important; 
+  }
+  .toolbar > * {
+    display: none;
+    transition: display 0.1s;
+  }
+  .toolbar.visible {
+    padding: 2rem 0;
+    max-height: 400px;
+    transition: max-height 0.6s, padding 0.6s;
+  }
+  .toolbar.visible > * {
+    display: flex;
+    transition: display 0.1s 0.3s;
+  }
+  .active-tool {
+    position: fixed;
+    z-index: 20;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+  }
 }
 
-
-@media only screen and (max-width:600px) {
-
-    .toolbar-left {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .draw-set {
-        flex-direction: column;
-        margin-right: 0;
-        gap: 1rem;
-        background: transparent;
-    }
-    .jscolor {
-        margin: 0;
-    }
-    .set-group {
-        display: flex;
-        align-items: baseline;
-        gap: .5rem;
-    }
+@media only screen and (max-width: 600px) {
+  .toolbar-left {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .draw-set {
+    flex-direction: column;
+    margin-right: 0;
+    gap: 1rem;
+    background: transparent;
+  }
+  .jscolor {
+    margin: 0;
+  }
 }
 
 
