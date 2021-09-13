@@ -46,6 +46,7 @@ app.brushSizeInput.addEventListener("change", changeBrushSize);
 app.bucketColorInput.addEventListener("change", changeBucketColor);
 app.brushColorInput.addEventListener("change", switchToBrush);
 canvas.addEventListener("pointerdown", startDrawing);
+canvas.addEventListener("touchemove", function() { e.preventDefault(); }, { passive:false });
 app.clearIcon.addEventListener("click", clearCanvas);
 app.downloadBtn.addEventListener("click", downloadImage);
 app.setDrawingsBtn.addEventListener("click", saveLocaleStorage);
