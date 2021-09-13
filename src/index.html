@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <title>Paint Clone</title>
+</head>
+<body>
+    <main class="main-section">
+        <button class="menu-btn" id="mobile-btn">
+            <span class="menu-toggle"></span>
+        </button>
+        <header class="toolbar">
+            <div class="toolbar-left">
+                <span class="active-tool" id="active-tool">Brush</span>
+                    <div class="draw-set">
+                        <div class="color-pen set-group">
+                            <i class="fas fa-brush btn" id="brush"></i>
+                            <input class="jscolor" value="000" id="brush-color">
+                        </div>
+                        <div class="pen-size set-group">
+                            <span class="pen-value">20</span>
+                            <input type="range" class="pen-size-range" id="brush-size" min="1" max="50" step="1">
+                        </div>
+                    </div>
+                    <div class="background-color-set set-group">
+                        <i class="fas fa-fill-drip"></i>
+                        <input  class="jscolor" value="fff" id="bucket-color">
+                    </div>
+            </div>
+            <div class="toolbar-right">
+                <i class="fas fa-eraser btn" id="eraser"></i>
+                <i class="fas fa-undo-alt btn" id ="undo"></i>
+                <i class="fas fa-download btn" id="save"></i>
+                <i class="fas fa-upload btn" id="upload"></i>
+                <i class="fas fa-trash-alt btn" id="trash"></i>
+                <a href="" id="download">
+                    <i class="fas fa-save btn" ></i>
+                </a>
+            </div>
+        </header>
+    </main>
+</body>
+</html>
