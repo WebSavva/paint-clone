@@ -135,7 +135,6 @@ function startDrawing(event) {
 }
 
 function continueDrawing(event) {   
-    console.log(app.drawnLines);
     const coordinates =  getCanvasedCoordinates(event);
     context.lineTo(coordinates.x, coordinates.y);
     context.stroke();
@@ -154,8 +153,8 @@ function continueDrawing(event) {
 
 function removeCanvasListeners() {
     app.lineNumber++;
-    canvas.removeEventListener('mousemove', continueDrawing);
-    canvas.removeEventListener('mouseup', removeCanvasListeners);
+    canvas.removeEventListener('pointermove', continueDrawing);
+    canvas.removeEventListener('pointerup', removeCanvasListeners);
 }
 function getCanvasedCoordinates(event, mouseX = event.clientX, mouseY = event.clientY) {
     const canvasCoordinates = canvas.getBoundingClientRect();
