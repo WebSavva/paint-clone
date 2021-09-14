@@ -1,4 +1,4 @@
-import "./jscolor";
+import Picker from "vanilla-picker";
 import "./style.css";
 
 const app = {
@@ -38,15 +38,21 @@ window.onresize = () => {
 };
 
 //event listeners
+mountColorPickers();
 setUpCanvas();
 placeActiveTool();
 app.eraserIcon.addEventListener("click", turnOnEraser);
 app.brushIcon.addEventListener("click", switchToBrush);
 app.brushSizeInput.addEventListener("change", changeBrushSize);
-app.bucketColorInput.addEventListener("change", changeBucketColor);
 app.brushColorInput.addEventListener("change", switchToBrush);
 canvas.addEventListener("pointerdown", startDrawing);
-canvas.addEventListener("touchemove", function() { e.preventDefault(); }, { passive:false });
+canvas.addEventListener(
+  "touchemove",
+  function () {
+    e.preventDefault();
+  },
+  { passive: false }
+);
 app.clearIcon.addEventListener("click", clearCanvas);
 app.downloadBtn.addEventListener("click", downloadImage);
 app.setDrawingsBtn.addEventListener("click", saveLocaleStorage);
@@ -63,6 +69,35 @@ function setUpCanvas() {
   context.fillRect(0, 0, canvas.width, canvas.height);
   document.body.append(canvas);
   switchToBrush();
+}
+
+function mountColorPickers() {
+  app.brushColorInput.style.backgroundColor = app.currentColor;
+  app.brushColorInput.textContent = app.currentColor;
+  const brushColorPicker = new Picker({
+    parent: app.brushColorInput,
+    color: app.currentColor,
+    onDone: function (color) {
+      app.brushColorInput.style.backgroundColor = color.hex;
+      app.brushColorInput.textContent = color.hex;
+      app.currentColor = color.hex;
+    },
+  });
+
+  app.bucketColorInput.style.backgroundColor = app.bucketColor;
+  app.bucketColorInput.textContent = app.currentColor;
+  const bucketColorPicker = new Picker({
+    parent: app.bucketColorInput,
+    color: app.bucketColor,
+    onDone: function (color) {
+      app.bucketColorInput.style.backgroundColor = color.hex;
+      app.bucketColorInput.textContent = color.hex;
+      app.bucketColor = color.hex;
+      setUpCanvas();
+      switchToBrush();
+      restoreCanvas();
+    },
+  });
 }
 
 function placeActiveTool() {
@@ -86,13 +121,6 @@ function turnOnEraser() {
   app.activeToolElement.textContent = "Eraser";
 }
 
-function changeBucketColor() {
-  app.bucketColor = `#${app.bucketColorInput.value}`;
-  setUpCanvas();
-  switchToBrush();
-  restoreCanvas();
-}
-
 function switchToBrush() {
   app.isEraser = false;
   //changing color of buttons and current mode text
@@ -100,7 +128,14 @@ function switchToBrush() {
   app.brushIcon.classList.add("active");
   app.activeToolElement.textContent = "Brush";
 
-  app.currentColor = `#${app.brushColorInput.value}`;
+  if (!app.currentColor) {
+    let color = `#0000`;
+    app.currentColor = color;
+    brushColorPicker.setColor(color);
+    brushColorInput.style.backgroundColor = color;
+    brushColorInput.textContent = color;
+  }
+
   app.brushSize = 10;
   app.brushSizeInput.value = 10;
   app.brushSizeElement.textContent = app.brushSize;
